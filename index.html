@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>מבצע נינטנדו של עומר 🎮</title>
+  <title>מבצע הנינטנדו של עומר ואליה 🎮</title>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Heebo:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -30,7 +30,6 @@
       overflow-x: hidden;
     }
 
-    /* ───── BACKGROUND ───── */
     body::before {
       content: '';
       position: fixed;
@@ -43,7 +42,6 @@
       z-index: 0;
     }
 
-    /* ───── FLOATING ICONS ───── */
     .pixel-deco {
       position: fixed;
       pointer-events: none;
@@ -62,7 +60,6 @@
       50%      { transform: translateY(-20px) rotate(10deg); }
     }
 
-    /* ───── CONFETTI CANVAS ───── */
     #confettiCanvas {
       position: fixed;
       top: 0; left: 0;
@@ -71,7 +68,6 @@
       z-index: 999;
     }
 
-    /* ───── TOAST ───── */
     #toastContainer {
       position: fixed;
       bottom: 90px;
@@ -103,7 +99,6 @@
     @keyframes toastIn  { from { opacity:0; transform:translateY(20px) scale(0.9); } to { opacity:1; transform:translateY(0) scale(1); } }
     @keyframes toastOut { to   { opacity:0; transform:translateY(-10px) scale(0.95); } }
 
-    /* ───── BOTTOM NAV ───── */
     .bottom-nav {
       position: fixed;
       bottom: 0; left: 0; right: 0;
@@ -137,11 +132,9 @@
     .nav-btn.active { color: var(--green); }
     .nav-btn.active .icon { filter: drop-shadow(0 0 6px rgba(40,255,138,0.6)); }
 
-    /* ───── PAGES ───── */
     .page { display: none; padding: 16px; }
     .page.active { display: block; }
 
-    /* ───── CONTAINER ───── */
     .container {
       max-width: 1050px;
       margin: auto;
@@ -149,7 +142,6 @@
       z-index: 1;
     }
 
-    /* ───── HEADER ───── */
     header {
       text-align: center;
       padding: 32px 24px 26px;
@@ -195,7 +187,6 @@
       font-weight: 600;
     }
 
-    /* streak pill in header */
     .streak-pill {
       display: inline-flex;
       align-items: center;
@@ -212,7 +203,6 @@
       z-index: 1;
     }
 
-    /* ───── SECTION ───── */
     section {
       background: rgba(17,22,42,0.9);
       border: 1px solid rgba(255,255,255,0.09);
@@ -234,7 +224,6 @@
       gap: 8px;
     }
 
-    /* ───── RING + STATS ───── */
     .progress-top {
       display: flex;
       align-items: center;
@@ -309,10 +298,8 @@
       font-size: 1.65rem;
       margin-top: 5px;
       text-shadow: 0 0 15px rgba(40,255,138,0.5);
-      transition: color 0.3s;
     }
 
-    /* ───── PROGRESS BAR ───── */
     .progress-label {
       display: flex;
       justify-content: space-between;
@@ -362,7 +349,6 @@
 
     .next-milestone-hint span { color: var(--yellow); }
 
-    /* ───── INPUT & BUTTON ───── */
     .input-group {
       display: flex;
       gap: 10px;
@@ -425,7 +411,6 @@
 
     button.secondary:hover { background: linear-gradient(135deg, var(--purple), var(--blue)); color: #06101a; }
 
-    /* ───── CELEBRATION ───── */
     .celebration {
       display: none;
       text-align: center;
@@ -445,7 +430,6 @@
       50%      { box-shadow: 0 0 40px rgba(40,255,138,0.6); }
     }
 
-    /* ───── MILESTONES ───── */
     .milestones {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(72px,1fr));
@@ -478,786 +462,4 @@
       border-color: rgba(255,233,77,0.5);
       background: rgba(255,233,77,0.08);
       box-shadow: 0 0 12px rgba(255,233,77,0.3);
-      animation: nextPulse 1.5s ease-in-out infinite;
-    }
-
-    @keyframes nextPulse { 0%,100% { transform:scale(1.02); } 50% { transform:scale(1.07); } }
-
-    /* ───── MISSIONS ───── */
-    .mission-filter {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 16px;
-    }
-
-    .filter-btn {
-      padding: 7px 14px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      background: rgba(255,255,255,0.06);
-      color: var(--muted);
-      border: 1px solid rgba(255,255,255,0.1);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .filter-btn.active, .filter-btn:hover {
-      background: rgba(0,217,255,0.15);
-      color: var(--blue);
-      border-color: rgba(0,217,255,0.4);
-    }
-
-    .missions {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(210px,1fr));
-      gap: 13px;
-    }
-
-    .mission {
-      background: linear-gradient(145deg, #131936, #0d1125);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 20px;
-      padding: 16px;
-      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .mission:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(155,92,255,0.2); border-color: rgba(155,92,255,0.3); }
-
-    .mission-cat {
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding: 3px 10px;
-      border-radius: 999px;
-      width: fit-content;
-    }
-
-    .cat-daily  { background: rgba(40,255,138,0.15); color: var(--green); }
-    .cat-weekly { background: rgba(0,217,255,0.15);  color: var(--blue); }
-    .cat-special{ background: rgba(155,92,255,0.15); color: var(--purple); }
-
-    .mission-title { font-size: 0.92rem; font-weight: 600; color: #cdd4f0; line-height: 1.4; flex: 1; }
-    .reward { font-family: 'Fredoka One', cursive; color: var(--yellow); font-size: 1.4rem; text-shadow: 0 0 15px rgba(255,233,77,0.5); }
-
-    .mission button { padding: 9px 13px; font-size: 0.85rem; }
-
-    /* mission complete ripple */
-    .mission.completing { animation: missionPop 0.5s ease forwards; }
-    @keyframes missionPop { 0% { transform:scale(1); } 50% { transform:scale(1.06); box-shadow: 0 0 30px rgba(40,255,138,0.4); } 100% { transform:scale(1); } }
-
-    /* ───── BADGES ───── */
-    .badges {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px,1fr));
-      gap: 12px;
-    }
-
-    .badge {
-      background: #0f1423;
-      color: #4a5168;
-      text-align: center;
-      border-radius: 20px;
-      padding: 20px 10px;
-      border: 1px solid rgba(255,255,255,0.06);
-      font-weight: 700;
-      line-height: 1.6;
-      font-size: 0.88rem;
-      transition: all 0.5s cubic-bezier(0.34,1.56,0.64,1);
-    }
-
-    .badge .badge-icon { font-size: 1.8rem; display: block; margin-bottom: 5px; filter: grayscale(1); transition: filter 0.5s; }
-
-    .badge.unlocked {
-      color: white;
-      background: linear-gradient(145deg, rgba(40,255,138,0.15), rgba(0,217,255,0.12));
-      border-color: rgba(40,255,138,0.4);
-      box-shadow: 0 0 25px rgba(40,255,138,0.3);
-      transform: scale(1.04);
-    }
-
-    .badge.unlocked .badge-icon { filter: grayscale(0); animation: iconBounce 0.6s ease; }
-
-    @keyframes iconBounce { 0% { transform:scale(0.5) rotate(-20deg); } 60% { transform:scale(1.3) rotate(10deg); } 100% { transform:scale(1); } }
-
-    /* ───── HISTORY ───── */
-    .history-list { display: flex; flex-direction: column; gap: 10px; max-height: 420px; overflow-y: auto; padding-left: 4px; }
-
-    .history-list::-webkit-scrollbar { width: 4px; }
-    .history-list::-webkit-scrollbar-track { background: transparent; }
-    .history-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 999px; }
-
-    .history-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: #0d1122;
-      border-radius: 14px;
-      padding: 12px 16px;
-      border: 1px solid rgba(255,255,255,0.07);
-      animation: slideIn 0.3s ease;
-    }
-
-    @keyframes slideIn { from { opacity:0; transform:translateX(-10px); } to { opacity:1; transform:translateX(0); } }
-
-    .history-amount {
-      font-family: 'Fredoka One', cursive;
-      font-size: 1.2rem;
-      min-width: 80px;
-      text-align: left;
-    }
-
-    .history-amount.positive { color: var(--green); }
-    .history-amount.negative { color: var(--danger); }
-
-    .history-desc { flex: 1; font-size: 0.9rem; color: #cdd4f0; }
-    .history-time { font-size: 0.76rem; color: var(--muted); white-space: nowrap; }
-
-    .history-empty { text-align: center; color: var(--muted); padding: 30px; font-weight: 600; }
-
-    /* ───── CONTROLS ───── */
-    .controls-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .control-block {
-      background: #0d1122;
-      border-radius: 18px;
-      padding: 16px;
-      border: 1px solid rgba(255,255,255,0.07);
-    }
-
-    .control-block h3 { font-size: 0.87rem; font-weight: 700; color: var(--muted); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
-
-    /* parent PIN overlay */
-    #pinOverlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.8);
-      z-index: 500;
-      backdrop-filter: blur(6px);
-      align-items: center;
-      justify-content: center;
-    }
-
-    #pinOverlay.show { display: flex; }
-
-    .pin-box {
-      background: #11162a;
-      border: 1px solid rgba(155,92,255,0.4);
-      border-radius: 28px;
-      padding: 36px 32px;
-      text-align: center;
-      box-shadow: 0 0 60px rgba(155,92,255,0.3);
-      max-width: 340px;
-      width: 90%;
-    }
-
-    .pin-box h3 { font-family: 'Fredoka One', cursive; font-size: 1.5rem; color: var(--purple); margin-bottom: 8px; }
-    .pin-box p  { color: var(--muted); font-size: 0.9rem; margin-bottom: 18px; }
-    .pin-box input { text-align: center; letter-spacing: 6px; font-size: 1.4rem; }
-    .pin-error { color: var(--danger); font-size: 0.85rem; margin-top: 8px; display: none; }
-
-    /* ───── MEDIA ───── */
-    @media (max-width: 620px) {
-      .progress-top { flex-direction: column; align-items: flex-start; }
-      .ring-wrap { align-self: center; }
-      .controls-grid { grid-template-columns: 1fr; }
-      button { width: 100%; }
-    }
-  </style>
-</head>
-
-<body>
-  <div class="pixel-deco">🎮</div>
-  <div class="pixel-deco">⭐</div>
-  <div class="pixel-deco">🪙</div>
-  <div class="pixel-deco">🎯</div>
-  <div class="pixel-deco">💎</div>
-
-  <canvas id="confettiCanvas"></canvas>
-
-  <div id="toastContainer"></div>
-
-  <!-- PIN OVERLAY -->
-  <div id="pinOverlay">
-    <div class="pin-box">
-      <h3>🔒 מצב הורים</h3>
-      <p>הכנס קוד PIN כדי לגשת לבקרות</p>
-      <input type="password" id="pinInput" placeholder="• • • •" maxlength="4" />
-      <div class="pin-error" id="pinError">קוד שגוי, נסה שוב</div>
-      <div style="display:flex;gap:10px;margin-top:14px;">
-        <button onclick="checkPin()">כניסה</button>
-        <button class="danger" onclick="closePin()">ביטול</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══════════ PAGE: HOME ═══════════ -->
-  <div class="page active" id="page-home">
-    <div class="container">
-      <header>
-        <h1>מבצע נינטנדו של עומר 🎮</h1>
-        <div class="subtitle">עומר חוסך חצי מהסכום – ואבא משלים את השאר!</div>
-        <div class="streak-pill" id="streakPill">🔥 רצף: <span id="streakCount">0</span> ימים</div>
-      </header>
-
-      <!-- PROGRESS -->
-      <section>
-        <h2>📊 לוח התקדמות</h2>
-        <div class="progress-top">
-          <div class="ring-wrap">
-            <svg width="130" height="130" viewBox="0 0 130 130">
-              <circle cx="65" cy="65" r="54" fill="none" stroke="#1a1f35" stroke-width="14"/>
-              <circle id="ringCircle" cx="65" cy="65" r="54" fill="none"
-                stroke="url(#ringGrad)" stroke-width="14" stroke-linecap="round"
-                stroke-dasharray="339.3" stroke-dashoffset="339.3"
-                style="transition: stroke-dashoffset 1s cubic-bezier(0.34,1.56,0.64,1)"/>
-              <defs>
-                <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%"   stop-color="#28ff8a"/>
-                  <stop offset="50%"  stop-color="#00d9ff"/>
-                  <stop offset="100%" stop-color="#9b5cff"/>
-                </linearGradient>
-              </defs>
-            </svg>
-            <div class="ring-center">
-              <div class="ring-pct" id="ringPct">0%</div>
-              <div class="ring-label">הושלם</div>
-            </div>
-          </div>
-
-          <div class="stats">
-            <div class="stat">
-              <div class="stat-label">היעד</div>
-              <strong style="color:var(--muted)">1,200 ₪</strong>
-            </div>
-            <div class="stat">
-              <div class="stat-label">נחסך</div>
-              <strong id="saved">0 ₪</strong>
-            </div>
-            <div class="stat">
-              <div class="stat-label">נשאר</div>
-              <strong id="remaining" style="color:var(--blue)">1,200 ₪</strong>
-            </div>
-            <div class="stat">
-              <div class="stat-label">ממוצע יומי</div>
-              <strong id="dailyAvg" style="color:var(--purple)">0 ₪</strong>
-            </div>
-          </div>
-        </div>
-
-        <div class="progress-label">
-          <span>0 ₪</span>
-          <span id="progressPct">0%</span>
-          <span>1,200 ₪</span>
-        </div>
-        <div class="progress-wrap">
-          <div class="progress-bar" id="progressBar"></div>
-        </div>
-        <div class="next-milestone-hint" id="nextHint"></div>
-
-        <div class="input-group">
-          <input type="number" id="manualAmount" min="0" max="1200" placeholder="הכנס סכום ידני..." />
-          <button onclick="requirePin(() => setManualAmount())">🎯 עדכן</button>
-        </div>
-
-        <div class="celebration" id="celebration">
-          🎉 ברוו עומר! הגעת ליעד! אבא משלים את השאר ומקבלים נינטנדו! 🎮🏆
-        </div>
-      </section>
-
-      <!-- MILESTONES -->
-      <section>
-        <h2>🏁 אבני דרך</h2>
-        <div class="milestones" id="milestones"></div>
-      </section>
-
-      <!-- BADGES -->
-      <section>
-        <h2>🏆 הישגים</h2>
-        <div class="badges" id="badges"></div>
-      </section>
-    </div>
-  </div>
-
-  <!-- ═══════════ PAGE: MISSIONS ═══════════ -->
-  <div class="page" id="page-missions">
-    <div class="container">
-      <header>
-        <h1>🎯 לוח משימות</h1>
-        <div class="subtitle">השלם משימות וצבור מטבעות!</div>
-      </header>
-
-      <section>
-        <h2>📋 משימות זמינות</h2>
-        <div class="mission-filter" id="missionFilter"></div>
-        <div class="missions" id="missions"></div>
-      </section>
-    </div>
-  </div>
-
-  <!-- ═══════════ PAGE: HISTORY ═══════════ -->
-  <div class="page" id="page-history">
-    <div class="container">
-      <header>
-        <h1>📜 היסטוריה</h1>
-        <div class="subtitle">כל הפעולות שביצעת</div>
-      </header>
-
-      <section>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-          <h2 style="margin-bottom:0">📋 יומן חיסכון</h2>
-          <button class="danger" style="width:auto;padding:8px 14px;font-size:0.82rem;"
-            onclick="requirePin(clearHistory)">🗑️ נקה</button>
-        </div>
-        <div class="history-list" id="historyList"></div>
-      </section>
-    </div>
-  </div>
-
-  <!-- ═══════════ PAGE: SETTINGS ═══════════ -->
-  <div class="page" id="page-settings">
-    <div class="container">
-      <header>
-        <h1>⚙️ הגדרות</h1>
-        <div class="subtitle">מצב הורים מוגן בקוד PIN</div>
-      </header>
-
-      <section>
-        <h2>⚙️ בקרות הורים</h2>
-        <div class="controls-grid">
-          <div class="control-block">
-            <h3>הוסף סכום</h3>
-            <div class="input-group" style="margin-top:0">
-              <input type="number" id="customAmount" placeholder="כמה ₪?" />
-              <button onclick="requirePin(addCustomAmount)">➕</button>
-            </div>
-          </div>
-          <div class="control-block">
-            <h3>הורד סכום</h3>
-            <div class="input-group" style="margin-top:0">
-              <input type="number" id="deductAmount" placeholder="כמה ₪?" />
-              <button class="danger" onclick="requirePin(deductCustomAmount)">➖</button>
-            </div>
-          </div>
-          <div class="control-block">
-            <h3>שינוי PIN</h3>
-            <div class="input-group" style="margin-top:0">
-              <input type="password" id="newPin" placeholder="PIN חדש (4 ספרות)" maxlength="4"/>
-              <button class="secondary" onclick="changePin()">💾 שמור</button>
-            </div>
-          </div>
-          <div class="control-block">
-            <h3>איפוס מלא</h3>
-            <button class="danger" onclick="requirePin(resetProgress)" style="width:100%">🗑️ איפוס התקדמות</button>
-          </div>
-        </div>
-      </section>
-    </div>
-  </div>
-
-  <!-- ═══════════ BOTTOM NAV ═══════════ -->
-  <nav class="bottom-nav">
-    <button class="nav-btn active" id="nav-home" onclick="showPage('home')">
-      <span class="icon">🏠</span>בית
-    </button>
-    <button class="nav-btn" id="nav-missions" onclick="showPage('missions')">
-      <span class="icon">🎯</span>משימות
-    </button>
-    <button class="nav-btn" id="nav-history" onclick="showPage('history')">
-      <span class="icon">📜</span>היסטוריה
-    </button>
-    <button class="nav-btn" id="nav-settings" onclick="showPage('settings')">
-      <span class="icon">⚙️</span>הגדרות
-    </button>
-  </nav>
-
-  <script>
-    /* ═══════════ DATA ═══════════ */
-    const GOAL = 1200;
-    const CIRCUMFERENCE = 2 * Math.PI * 54; // 339.29
-
-    let savings  = Number(localStorage.getItem("omerSavings") || 0);
-    let history  = JSON.parse(localStorage.getItem("omerHistory") || "[]");
-    let streak   = JSON.parse(localStorage.getItem("omerStreak") || '{"count":0,"lastDate":""}');
-    let parentPin = localStorage.getItem("parentPin") || "1234";
-    let pinCallback = null;
-
-    const MISSIONS = [
-      // [name, reward, category]
-      ["קיפול כביסה של סל אחד",          5,  "daily"],
-      ["סידור מלא של החדר",               5,  "daily"],
-      ["פינוי מדיח כלים",                  4,  "daily"],
-      ["עריכת שולחן לארוחה משפחתית",     3,  "daily"],
-      ["ניקוי שולחן האוכל לאחר ארוחה",   3,  "daily"],
-      ["איסוף צעצועים וסידור הסלון",       4,  "daily"],
-      ["השקיית עציצים",                    2,  "daily"],
-      ["הוצאת אשפה ופח מחזור",             3,  "daily"],
-      ["שטיפת הרכב עם אבא",               15, "weekly"],
-      ["ניקוי יסודי של החדר כולל אבק",    15, "weekly"],
-      ["סידור ארון בגדים",                 12, "weekly"],
-      ["עזרה בקניות ופריקת שקיות",        10, "weekly"],
-      ["ניקוי שולחן כתיבה וספרים",        10, "weekly"],
-      ["ניקוי אופניים",                    10, "weekly"],
-      ["עזרה בפרויקט ביתי מיוחד",         20, "special"],
-      ["ניקוי חצר או מרפסת",              20, "special"],
-      ["ארגון פינת משחקים",               20, "special"],
-      ["ניקוי נעליים של כל המשפחה",       15, "special"],
-      ["עזרה בבישול ארוחה",               15, "special"],
-    ];
-
-    const ACHIEVEMENTS = [
-      ["🌱", "100 ₪ ראשונים",  100],
-      ["⚡", "רבע דרך – 300 ₪", 300],
-      ["🌟", "חצי דרך – 600 ₪", 600],
-      ["🔥", "1,000 ₪ – כמעט!",1000],
-      ["🏆", "היעד הושלם!",     1200],
-    ];
-
-    let activeCat = "all";
-    let confettiActive = false;
-
-    /* ═══════════ SAVE / UPDATE ═══════════ */
-    function save() {
-      savings = Math.min(Math.max(savings, 0), GOAL);
-      localStorage.setItem("omerSavings", savings);
-      localStorage.setItem("omerHistory", JSON.stringify(history));
-      updateStreak();
-      updateUI();
-    }
-
-    function addHistory(amount, desc) {
-      history.unshift({ amount, desc, time: Date.now() });
-      if (history.length > 200) history.pop();
-    }
-
-    function updateStreak() {
-      const today = new Date().toDateString();
-      if (streak.lastDate === today) return;
-      const yesterday = new Date(Date.now() - 86400000).toDateString();
-      streak.count = (streak.lastDate === yesterday) ? streak.count + 1 : 1;
-      streak.lastDate = today;
-      localStorage.setItem("omerStreak", JSON.stringify(streak));
-      document.getElementById("streakCount").textContent = streak.count;
-    }
-
-    /* ═══════════ UI UPDATE ═══════════ */
-    function updateUI() {
-      const pct       = Math.floor((savings / GOAL) * 100);
-      const remaining = Math.max(GOAL - savings, 0);
-
-      // text stats
-      document.getElementById("saved").textContent     = fmt(savings) + " ₪";
-      document.getElementById("remaining").textContent = fmt(remaining) + " ₪";
-      document.getElementById("progressPct").textContent = pct + "%";
-
-      // daily average
-      const days = Math.max(history.filter(h => h.amount > 0).length, 1);
-      const totalEarned = history.filter(h => h.amount > 0).reduce((s,h) => s + h.amount, 0);
-      const avgPerAction = Math.round(totalEarned / days);
-      document.getElementById("dailyAvg").textContent = avgPerAction + " ₪";
-
-      // ring
-      const offset = CIRCUMFERENCE - (pct / 100) * CIRCUMFERENCE;
-      document.getElementById("ringCircle").style.strokeDashoffset = offset;
-      document.getElementById("ringPct").textContent = pct + "%";
-
-      // bar
-      document.getElementById("progressBar").style.width = pct + "%";
-
-      // celebration
-      document.getElementById("celebration").style.display = savings >= GOAL ? "block" : "none";
-      if (savings >= GOAL && !confettiActive) launchConfetti();
-
-      // next milestone hint
-      const nextMs = [50,100,150,200,250,300,350,400,450,500,550,600,650,700,750,800,850,900,950,1000,1050,1100,1150,1200]
-        .find(m => m > savings);
-      const hint = document.getElementById("nextHint");
-      if (nextMs) {
-        const left = nextMs - savings;
-        hint.innerHTML = עוד <span>${fmt(left)} ₪</span> לאבן הדרך הבאה: <span>${fmt(nextMs)} ₪</span>;
-      } else {
-        hint.innerHTML = 🏆 כל אבני הדרך הושלמו!;
-      }
-
-      // streak
-      document.getElementById("streakCount").textContent = streak.count;
-
-      renderMilestones();
-      renderBadges();
-      renderHistory();
-    }
-
-    function fmt(n) { return Number(n).toLocaleString('he-IL'); }
-
-    /* ═══════════ MILESTONES ═══════════ */
-    function renderMilestones() {
-      const box = document.getElementById("milestones");
-      box.innerHTML = "";
-      for (let i = 1; i <= 24; i++) {
-        const amt  = i * 50;
-        const done = savings >= amt;
-        const next = !done && savings >= (i - 1) * 50;
-        const div  = document.createElement("div");
-        div.className = "milestone" + (done ? " done" : next ? " next" : "");
-        div.innerHTML  = done ? ✅<br>${amt}₪ : next ? 🎯<br>${amt}₪ : 🔒<br>${amt}₪;
-        box.appendChild(div);
-      }
-    }
-
-    /* ═══════════ BADGES ═══════════ */
-    function renderBadges() {
-      const box = document.getElementById("badges");
-      box.innerHTML = "";
-      ACHIEVEMENTS.forEach(([icon, title, amount]) => {
-        const unlocked = savings >= amount;
-        const badge = document.createElement("div");
-        badge.className = "badge" + (unlocked ? " unlocked" : "");
-        badge.innerHTML = <span class="badge-icon">${unlocked ? icon : "🔒"}</span>${title};
-        box.appendChild(badge);
-      });
-    }
-
-    /* ═══════════ MISSIONS ═══════════ */
-    function renderMissions() {
-      // filter buttons
-      const filterBox = document.getElementById("missionFilter");
-      filterBox.innerHTML = "";
-      const cats = [["all","הכל"],["daily","יומי"],["weekly","שבועי"],["special","מיוחד"]];
-      cats.forEach(([val, label]) => {
-        const btn = document.createElement("button");
-        btn.className = "filter-btn" + (activeCat === val ? " active" : "");
-        btn.textContent = label;
-        btn.onclick = () => { activeCat = val; renderMissions(); };
-        filterBox.appendChild(btn);
-      });
-
-      // mission cards
-      const box = document.getElementById("missions");
-      box.innerHTML = "";
-      const filtered = MISSIONS.filter(([,,cat]) => activeCat === "all" || cat === activeCat);
-      filtered.forEach(([name, reward, cat]) => {
-        const catLabels = { daily:"יומי", weekly:"שבועי", special:"מיוחד" };
-        const card = document.createElement("div");
-        card.className = "mission";
-        card.innerHTML = `
-          <div class="mission-cat cat-${cat}">${catLabels[cat]}</div>
-          <div class="mission-title">${name}</div>
-          <div class="reward">+${reward} ₪</div>
-          <button class="secondary" onclick="completeMission(this, '${name}', ${reward})">✅ סיימתי!</button>
-        `;
-        box.appendChild(card);
-      });
-    }
-
-    /* ═══════════ HISTORY ═══════════ */
-    function renderHistory() {
-      const box = document.getElementById("historyList");
-      box.innerHTML = "";
-      if (history.length === 0) {
-        box.innerHTML = <div class="history-empty">⏳ עדיין אין פעולות. בצע משימה כדי להתחיל!</div>;
-        return;
-      }
-      history.forEach(h => {
-        const d = new Date(h.time);
-        const time = d.toLocaleDateString('he-IL') + " " + d.toLocaleTimeString('he-IL', {hour:'2-digit',minute:'2-digit'});
-        const item = document.createElement("div");
-        item.className = "history-item";
-        item.innerHTML = `
-          <div class="history-amount ${h.amount >= 0 ? 'positive' : 'negative'}">${h.amount >= 0 ? '+' : ''}${h.amount} ₪</div>
-          <div class="history-desc">${h.desc}</div>
-          <div class="history-time">${time}</div>
-        `;
-        box.appendChild(item);
-      });
-    }
-
-    /* ═══════════ ACTIONS ═══════════ */
-    function completeMission(btn, name, amount) {
-      const card = btn.closest(".mission");
-      card.classList.add("completing");
-      setTimeout(() => card.classList.remove("completing"), 500);
-
-      savings += amount;
-      addHistory(amount, ✅ ${name});
-      save();
-      showToast(+${amount} ₪ — ${name}! 🎉);
-
-      // Badge unlock check
-      ACHIEVEMENTS.forEach(([icon, title, threshold]) => {
-        if (savings >= threshold && savings - amount < threshold) {
-          setTimeout(() => showToast(🏆 הישג חדש: ${title}!), 800);
-        }
-      });
-    }
-
-    function setManualAmount() {
-      const value = Number(document.getElementById("manualAmount").value);
-      if (!isNaN(value) && document.getElementById("manualAmount").value !== "") {
-        const diff = value - savings;
-        savings = value;
-        document.getElementById("manualAmount").value = "";
-        addHistory(diff, 📝 עדכון ידני ל-${value} ₪);
-        save();
-        showToast(עודכן ל-${value} ₪);
-      }
-    }
-
-    function addCustomAmount() {
-      const value = Number(document.getElementById("customAmount").value);
-      if (!isNaN(value) && value > 0) {
-        savings += value;
-        addHistory(value, ➕ הוספה ידנית);
-        document.getElementById("customAmount").value = "";
-        save();
-        showToast(+${value} ₪ נוסף!);
-      }
-    }
-
-    function deductCustomAmount() {
-      const value = Number(document.getElementById("deductAmount").value);
-      if (!isNaN(value) && value > 0) {
-        savings -= value;
-        addHistory(-value, ➖ הפחתה ידנית);
-        document.getElementById("deductAmount").value = "";
-        save();
-        showToast(-${value} ₪ הופחת);
-      }
-    }
-
-    function resetProgress() {
-      if (confirm("בטוח לאפס את כל ההתקדמות של עומר?")) {
-        savings = 0;
-        history = [];
-        addHistory(0, "🔄 איפוס התקדמות");
-        save();
-        showToast("הותחל מחדש! 🔄");
-      }
-    }
-
-    function clearHistory() {
-      if (confirm("למחוק את כל ההיסטוריה?")) {
-        history = [];
-        localStorage.setItem("omerHistory", "[]");
-        renderHistory();
-        showToast("ההיסטוריה נמחקה");
-      }
-    }
-
-    /* ═══════════ PIN ═══════════ */
-    function requirePin(cb) {
-      pinCallback = cb;
-      document.getElementById("pinInput").value = "";
-      document.getElementById("pinError").style.display = "none";
-      document.getElementById("pinOverlay").classList.add("show");
-      setTimeout(() => document.getElementById("pinInput").focus(), 50);
-    }
-
-    function checkPin() {
-      const entered = document.getElementById("pinInput").value;
-      if (entered === parentPin) {
-        document.getElementById("pinOverlay").classList.remove("show");
-        if (pinCallback) { pinCallback(); pinCallback = null; }
-      } else {
-        document.getElementById("pinError").style.display = "block";
-        document.getElementById("pinInput").value = "";
-      }
-    }
-
-    function closePin() {
-      document.getElementById("pinOverlay").classList.remove("show");
-      pinCallback = null;
-    }
-
-    function changePin() {
-      const np = document.getElementById("newPin").value.trim();
-      if (np.length === 4 && /^\d{4}$/.test(np)) {
-        parentPin = np;
-        localStorage.setItem("parentPin", parentPin);
-        document.getElementById("newPin").value = "";
-        showToast("PIN שונה בהצלחה! 🔐");
-      } else {
-        showToast("PIN חייב להיות 4 ספרות");
-      }
-    }
-
-    document.getElementById("pinInput").addEventListener("keydown", e => { if (e.key === "Enter") checkPin(); });
-
-    /* ═══════════ NAVIGATION ═══════════ */
-    function showPage(name) {
-      document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-      document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active"));
-      document.getElementById("page-" + name).classList.add("active");
-      document.getElementById("nav-" + name).classList.add("active");
-      if (name === "missions") renderMissions();
-    }
-
-    /* ═══════════ TOAST ═══════════ */
-    function showToast(msg) {
-      const t = document.createElement("div");
-      t.className = "toast";
-      t.textContent = msg;
-      document.getElementById("toastContainer").appendChild(t);
-      setTimeout(() => {
-        t.classList.add("out");
-        setTimeout(() => t.remove(), 300);
-      }, 2800);
-    }
-
-    /* ═══════════ CONFETTI ═══════════ */
-    function launchConfetti() {
-      confettiActive = true;
-      const canvas = document.getElementById("confettiCanvas");
-      const ctx = canvas.getContext("2d");
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-
-      const colors = ["#28ff8a","#00d9ff","#9b5cff","#ffe94d","#ff9f1c","#ff4d6d"];
-      const pieces = Array.from({length: 160}, () => ({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height - canvas.height,
-        size: Math.random() * 10 + 4,
-        color: colors[Math.floor(Math.random() * colors.length)],
-        speed: Math.random() * 3 + 2,
-        angle: Math.random() * 360,
-        spin: Math.random() * 6 - 3,
-        drift: Math.random() * 2 - 1,
-      }));
-
-      let frame = 0;
-      function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        pieces.forEach(p => {
-          ctx.save();
-          ctx.translate(p.x, p.y);
-          ctx.rotate((p.angle * Math.PI) / 180);
-          ctx.fillStyle = p.color;
-          ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
-          ctx.restore();
-          p.y += p.speed;
-          p.x += p.drift;
-          p.angle += p.spin;
-        });
-        frame++;
-        if (frame < 220) requestAnimationFrame(draw);
-        else { ctx.clearRect(0, 0, canvas.width, canvas.height); confettiActive = false; }
-      }
-      draw();
-    }
-
-    /* ═══════════ INIT ═══════════ */
-    streak = JSON.parse(localStorage.getItem("omerStreak") || '{"count":0,"lastDate":""}');
-    updateStreak();
-    updateUI();
-  </script>
-</body>
-</html>
+      animation: next
